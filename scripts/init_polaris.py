@@ -4,7 +4,7 @@ import sys
 
 POLARIS_URL = "http://dbt_playground_polaris:8181"
 CLIENT_ID = "root"
-CLIENT_SECRET = "secret"
+CLIENT_SECRET = "s3cr3t"
 CATALOG_NAME = "dbt_playground"
 
 def get_token():
