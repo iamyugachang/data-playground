@@ -59,6 +59,7 @@ services:
       - "8080:8080"
     volumes:
       - ./trino/etc:/etc/trino
+      - ./scripts:/scripts
     depends_on:
       - hive-metastore
       - postgres
