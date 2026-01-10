@@ -39,7 +39,7 @@ services:
     container_name: dbt_playground_polaris
     environment:
       - POLARIS_ENV=dev
-      - POLARIS_BOOTSTRAP_CREDENTIALS=default-realm,root,s3cr3t
+      - POLARIS_BOOTSTRAP_CREDENTIALS=POLARIS,root,s3cr3t
     ports:
       - "8181:8181"
     depends_on:
