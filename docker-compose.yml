@@ -73,6 +73,7 @@ services:
       - ./dbt_project:/usr/app/dbt_project
       # Mount profiles locally so they persist and are easy to edit
       - ./dbt_profiles:/root/.dbt
+      - ./scripts:/scripts
     environment:
       - DBT_PROFILES_DIR=/root/.dbt
     ports:

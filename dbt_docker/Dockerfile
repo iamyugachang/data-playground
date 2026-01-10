@@ -5,8 +5,8 @@ WORKDIR /usr/app
 # Install git and other dependencies
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-# Install dbt-trino
-RUN pip install dbt-core dbt-trino
+# Install dbt-trino and requests (for init script)
+RUN pip install dbt-core dbt-trino requests
 
 # We will mount the project here
 WORKDIR /usr/app/dbt_project
