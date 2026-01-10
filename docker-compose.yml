@@ -4,7 +4,7 @@ services:
   # ---------------------------------------------------------------------------
   postgres:
     image: postgres:15
-    container_name: postgres
+    container_name: dbt_playground_postgres
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: password
@@ -19,7 +19,7 @@ services:
   # ---------------------------------------------------------------------------
   minio:
     image: quay.io/minio/minio:latest
-    container_name: minio
+    container_name: dbt_playground_minio
     environment:
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: password
@@ -33,7 +33,7 @@ services:
   # ---------------------------------------------------------------------------
   hive-metastore:
     image: apache/hive:4.0.0-alpha-2
-    container_name: hive-metastore
+    container_name: dbt_playground_hive_metastore
     depends_on:
       - postgres
       - minio
@@ -52,7 +52,7 @@ services:
   # ---------------------------------------------------------------------------
   trino:
     image: trinodb/trino:436
-    container_name: trino
+    container_name: dbt_playground_trino
     ports:
       - "8080:8080"
     volumes:
@@ -70,7 +70,7 @@ services:
     build:
       context: .
       dockerfile: dbt_docker/Dockerfile
-    container_name: dbt_runner
+    container_name: dbt_playground_dbt_runner
     command: tail -f /dev/null
     volumes:
       - ./dbt_project:/usr/app/dbt_project
