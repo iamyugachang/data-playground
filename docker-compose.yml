@@ -31,21 +31,18 @@ services:
   # ---------------------------------------------------------------------------
   # Hive Metastore
   # ---------------------------------------------------------------------------
-  hive-metastore:
-    image: apache/hive:4.0.0-alpha-2
-    container_name: dbt_playground_hive_metastore
+  # ---------------------------------------------------------------------------
+  # Apache Polaris (Catalog)
+  # ---------------------------------------------------------------------------
+  polaris:
+    image: apache/polaris:latest
+    container_name: dbt_playground_polaris
+    environment:
+      - POLARIS_ENV=dev
+    ports:
+      - "8181:8181"
     depends_on:
       - postgres
-      - minio
-    environment:
-      SERVICE_NAME: metastore
-      DB_DRIVER: postgres
-      # Connection to Postgres Metastore DB
-      SERVICE_OPTS: "-Djavax.jdo.option.ConnectionDriverName=org.postgresql.Driver -Djavax.jdo.option.ConnectionURL=jdbc:postgresql://postgres:5432/metastore -Djavax.jdo.option.ConnectionUserName=admin -Djavax.jdo.option.ConnectionPassword=password"
-      HADOOP_OPTIONAL_TOOLS: "hadoop-aws"
-    volumes:
-      - ./hive_config/hive-site.xml:/opt/hive/conf/hive-site.xml
-    command: /opt/hive/bin/hive --service metastore
 
   # ---------------------------------------------------------------------------
   # Trino
@@ -59,7 +56,7 @@ services:
       - ./trino/etc:/etc/trino
       - ./scripts:/scripts
     depends_on:
-      - hive-metastore
+      - polaris
       - postgres
       - minio
 
