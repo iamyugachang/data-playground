@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: shop
+    description: "Postgres data"
+    database: postgres
+    schema: public
+    tables:
+      - name: customers
+      - name: products
+
+  - name: raw_events
+    description: "Iceberg raw events"
+    database: iceberg
+    schema: data
+    tables:
+      - name: events
