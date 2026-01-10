@@ -1,0 +1,1230 @@
+[0m13:13:48.645495 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7660b8908610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7660b78c8850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7660b78c87c0>]}
+
+
+============================== 13:13:48.649076 | 55681e71-bc5c-46cb-aaa1-ee7f15362ac4 ==============================
+[0m13:13:48.649076 [info ] [MainThread]: Running with dbt=1.11.2
+[0m13:13:48.649827 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'introspect': 'True', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'log_path': '/usr/app/dbt_project/logs', 'cache_selected_only': 'False', 'no_print': 'None', 'use_experimental_parser': 'False', 'log_format': 'default', 'log_cache_events': 'False', 'write_json': 'True', 'warn_error': 'None', 'version_check': 'True', 'printer_width': '80', 'partial_parse': 'True', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'use_colors': 'True', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'debug': 'False', 'profiles_dir': '/root/.dbt'}
+[0m13:13:48.664045 [info ] [MainThread]: dbt version: 1.11.2
+[0m13:13:48.665364 [info ] [MainThread]: python version: 3.10.19
+[0m13:13:48.666499 [info ] [MainThread]: python path: /usr/local/bin/python3.10
+[0m13:13:48.667011 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.41
+[0m13:13:48.779822 [info ] [MainThread]: Using profiles dir at /root/.dbt
+[0m13:13:48.780987 [info ] [MainThread]: Using profiles.yml file at /root/.dbt/profiles.yml
+[0m13:13:48.782226 [info ] [MainThread]: Using dbt_project.yml file at /usr/app/dbt_project/dbt_project.yml
+[0m13:13:48.783258 [info ] [MainThread]: adapter type: trino
+[0m13:13:48.784259 [info ] [MainThread]: adapter version: 1.10.0
+[0m13:13:49.131303 [info ] [MainThread]: Configuration:
+[0m13:13:49.132452 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:13:49.133759 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m13:13:49.134929 [info ] [MainThread]: Required dependencies:
+[0m13:13:49.135874 [debug] [MainThread]: Executing "git --help"
+[0m13:13:49.147578 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m13:13:49.148279 [debug] [MainThread]: STDERR: "b''"
+[0m13:13:49.148690 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m13:13:49.149163 [info ] [MainThread]: Connection:
+[0m13:13:49.149622 [info ] [MainThread]:   host: trino
+[0m13:13:49.150084 [info ] [MainThread]:   port: 8080
+[0m13:13:49.150526 [info ] [MainThread]:   user: admin
+[0m13:13:49.150929 [info ] [MainThread]:   database: iceberg
+[0m13:13:49.151392 [info ] [MainThread]:   schema: public
+[0m13:13:49.151797 [info ] [MainThread]:   cert: None
+[0m13:13:49.152187 [info ] [MainThread]:   prepared_statements_enabled: True
+[0m13:13:49.152750 [info ] [MainThread]: Registered adapter: trino=1.10.0
+[0m13:13:49.272604 [debug] [MainThread]: Acquiring new trino connection 'debug'
+[0m13:13:49.343542 [debug] [MainThread]: Using trino connection "debug"
+[0m13:13:49.344182 [debug] [MainThread]: On debug: select 1 as id
+[0m13:13:49.344636 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:13:49.344987 [warn ] [MainThread]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m13:13:49.345662 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': '55681e71-bc5c-46cb-aaa1-ee7f15362ac4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7660b75ee440>]}
+[0m13:13:49.459819 [debug] [MainThread]: SQL status: SUCCESS in 0.115 seconds
+[0m13:13:49.461178 [debug] [MainThread]: On debug: Close
+[0m13:13:49.462235 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m13:13:49.462923 [info ] [MainThread]: [32mAll checks passed![0m
+[0m13:13:49.465105 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 0.92768866, "process_in_blocks": "0", "process_kernel_time": 0.412862, "process_mem_max_rss": "108456", "process_out_blocks": "952", "process_user_time": 2.62289}
+[0m13:13:49.465991 [debug] [MainThread]: Command `dbt debug` succeeded at 13:13:49.465814 after 0.93 seconds
+[0m13:13:49.466588 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:13:49.467306 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7660b8908610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7660b7883d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7660b89a3e80>]}
+[0m13:13:49.468035 [debug] [MainThread]: Flushing usage events
+[0m13:13:50.415312 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:14:10.605957 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d30214c340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d301110580>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d301110520>]}
+
+
+============================== 13:14:10.609205 | f4a6b644-737e-40c9-aba7-25f16bef2b36 ==============================
+[0m13:14:10.609205 [info ] [MainThread]: Running with dbt=1.11.2
+[0m13:14:10.609990 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'partial_parse': 'True', 'quiet': 'False', 'no_print': 'None', 'static_parser': 'True', 'invocation_command': 'dbt run', 'log_cache_events': 'False', 'empty': 'False', 'target_path': 'None', 'profiles_dir': '/root/.dbt', 'introspect': 'True', 'log_path': '/usr/app/dbt_project/logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'use_colors': 'True', 'write_json': 'True', 'indirect_selection': 'eager', 'version_check': 'True', 'use_experimental_parser': 'False', 'warn_error': 'None', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'log_format': 'default'}
+[0m13:14:10.956757 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f4a6b644-737e-40c9-aba7-25f16bef2b36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d301933a90>]}
+[0m13:14:11.072608 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f4a6b644-737e-40c9-aba7-25f16bef2b36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d3012a0160>]}
+[0m13:14:11.073495 [info ] [MainThread]: Registered adapter: trino=1.10.0
+[0m13:14:11.203183 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m13:14:11.204108 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m13:14:11.205224 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'f4a6b644-737e-40c9-aba7-25f16bef2b36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d300e838b0>]}
+[0m13:14:13.093670 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f4a6b644-737e-40c9-aba7-25f16bef2b36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d2fbdda050>]}
+[0m13:14:13.247727 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m13:14:13.253716 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m13:14:13.274751 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f4a6b644-737e-40c9-aba7-25f16bef2b36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d2fbd98f10>]}
+[0m13:14:13.275474 [info ] [MainThread]: Found 3 models, 3 sources, 455 macros
+[0m13:14:13.275981 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f4a6b644-737e-40c9-aba7-25f16bef2b36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d2fbddb400>]}
+[0m13:14:13.286490 [info ] [MainThread]: 
+[0m13:14:13.287240 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m13:14:13.287792 [info ] [MainThread]: 
+[0m13:14:13.288466 [debug] [MainThread]: Acquiring new trino connection 'master'
+[0m13:14:13.298756 [debug] [ThreadPool]: Acquiring new trino connection 'list_iceberg'
+[0m13:14:13.432553 [debug] [ThreadPool]: Using trino connection "list_iceberg"
+[0m13:14:13.433108 [debug] [ThreadPool]: On list_iceberg: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "list_iceberg"} */
+
+    select schema_name
+    from "iceberg".INFORMATION_SCHEMA.schemata
+[0m13:14:13.433612 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:14:13.434318 [warn ] [ThreadPool]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m13:14:13.435205 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': 'f4a6b644-737e-40c9-aba7-25f16bef2b36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d300882110>]}
+[0m13:14:13.667359 [debug] [ThreadPool]: SQL status: SUCCESS in 0.234 seconds
+[0m13:14:13.669903 [debug] [ThreadPool]: On list_iceberg: Close
+[0m13:14:13.673379 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_iceberg, now create_iceberg_public)
+[0m13:14:13.674353 [debug] [ThreadPool]: Creating schema "database: "iceberg"
+schema: "public"
+"
+[0m13:14:13.681871 [debug] [ThreadPool]: Using trino connection "create_iceberg_public"
+[0m13:14:13.682453 [debug] [ThreadPool]: On create_iceberg_public: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "create_iceberg_public"} */
+create schema if not exists "iceberg"."public"
+[0m13:14:13.682859 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:14:13.930532 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.103 seconds
+[0m13:14:13.932017 [debug] [ThreadPool]: On create_iceberg_public: COMMIT
+[0m13:14:13.932559 [debug] [ThreadPool]: On create_iceberg_public: Close
+[0m13:14:13.934719 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_iceberg_public, now list_iceberg_public)
+[0m13:14:13.956581 [debug] [ThreadPool]: Using trino connection "list_iceberg_public"
+[0m13:14:13.957181 [debug] [ThreadPool]: On list_iceberg_public: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "list_iceberg_public"} */
+select
+      t.table_catalog as database,
+      t.table_name as name,
+      t.table_schema as schema,
+      case when mv.name is not null then 'materialized_view'
+           when t.table_type = 'BASE TABLE' then 'table'
+           when t.table_type = 'VIEW' then 'view'
+           else t.table_type
+      end as table_type
+    from "iceberg".INFORMATION_SCHEMA.tables t
+    left join (
+            select * from system.metadata.materialized_views
+            where catalog_name = 'iceberg'
+              and schema_name = 'public') mv
+          on mv.catalog_name = t.table_catalog and mv.schema_name = t.table_schema and mv.name = t.table_name
+    where t.table_schema = 'public'
+[0m13:14:13.957607 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:14:14.670860 [debug] [ThreadPool]: SQL status: SUCCESS in 0.713 seconds
+[0m13:14:14.672562 [debug] [ThreadPool]: On list_iceberg_public: ROLLBACK
+[0m13:14:14.673224 [debug] [ThreadPool]: On list_iceberg_public: Close
+[0m13:14:14.678388 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f4a6b644-737e-40c9-aba7-25f16bef2b36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d3025d0ac0>]}
+[0m13:14:14.679175 [debug] [MainThread]: On master: COMMIT
+[0m13:14:14.688886 [debug] [Thread-1 (]: Began running node model.dbt_playground.stg_customers
+[0m13:14:14.689460 [debug] [Thread-2 (]: Began running node model.dbt_playground.stg_events
+[0m13:14:14.690442 [info ] [Thread-1 (]: 1 of 3 START sql view model public.stg_customers ............................... [RUN]
+[0m13:14:14.691148 [info ] [Thread-2 (]: 2 of 3 START sql view model public.stg_events .................................. [RUN]
+[0m13:14:14.692642 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_iceberg_public, now model.dbt_playground.stg_customers)
+[0m13:14:14.693483 [debug] [Thread-2 (]: Acquiring new trino connection 'model.dbt_playground.stg_events'
+[0m13:14:14.694228 [debug] [Thread-1 (]: Began compiling node model.dbt_playground.stg_customers
+[0m13:14:14.694835 [debug] [Thread-2 (]: Began compiling node model.dbt_playground.stg_events
+[0m13:14:14.698937 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_playground.stg_customers"
+[0m13:14:14.704956 [debug] [Thread-2 (]: Writing injected SQL for node "model.dbt_playground.stg_events"
+[0m13:14:14.707418 [debug] [Thread-1 (]: Began executing node model.dbt_playground.stg_customers
+[0m13:14:14.724757 [debug] [Thread-2 (]: Began executing node model.dbt_playground.stg_events
+[0m13:14:14.742516 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_playground.stg_customers"
+[0m13:14:14.745373 [debug] [Thread-2 (]: Writing runtime sql for node "model.dbt_playground.stg_events"
+[0m13:14:14.749420 [debug] [Thread-2 (]: Using trino connection "model.dbt_playground.stg_events"
+[0m13:14:14.751535 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.stg_events"} */
+
+  create or replace view
+    "iceberg"."public"."stg_events"
+  security definer
+  as
+    select
+    event_id,
+    user_id as customer_id,
+    event_type,
+    event_time
+from "iceberg"."data"."events"
+  
+[0m13:14:14.752196 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m13:14:14.753824 [debug] [Thread-1 (]: Using trino connection "model.dbt_playground.stg_customers"
+[0m13:14:14.756360 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.stg_customers"} */
+
+  create or replace view
+    "iceberg"."public"."stg_customers"
+  security definer
+  as
+    select
+    id as customer_id,
+    name,
+    email
+from "postgres"."public"."customers"
+  
+[0m13:14:14.757269 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:14:15.657149 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.905 seconds
+[0m13:14:15.689319 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: ROLLBACK
+[0m13:14:15.695356 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: Close
+[0m13:14:15.702062 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f4a6b644-737e-40c9-aba7-25f16bef2b36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d3025d3160>]}
+[0m13:14:15.703193 [info ] [Thread-2 (]: 2 of 3 OK created sql view model public.stg_events ............................. [[32mCREATE VIEW[0m in 1.00s]
+[0m13:14:15.704130 [debug] [Thread-2 (]: Finished running node model.dbt_playground.stg_events
+[0m13:14:15.794630 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 1.037 seconds
+[0m13:14:15.797196 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: ROLLBACK
+[0m13:14:15.797752 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: Close
+[0m13:14:15.798854 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f4a6b644-737e-40c9-aba7-25f16bef2b36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d30081ecb0>]}
+[0m13:14:15.799794 [info ] [Thread-1 (]: 1 of 3 OK created sql view model public.stg_customers .......................... [[32mCREATE VIEW[0m in 1.11s]
+[0m13:14:15.800617 [debug] [Thread-1 (]: Finished running node model.dbt_playground.stg_customers
+[0m13:14:15.802884 [debug] [Thread-4 (]: Began running node model.dbt_playground.customer_activity
+[0m13:14:15.803887 [info ] [Thread-4 (]: 3 of 3 START sql table model public.customer_activity .......................... [RUN]
+[0m13:14:15.804878 [debug] [Thread-4 (]: Acquiring new trino connection 'model.dbt_playground.customer_activity'
+[0m13:14:15.805426 [debug] [Thread-4 (]: Began compiling node model.dbt_playground.customer_activity
+[0m13:14:15.811504 [debug] [Thread-4 (]: Writing injected SQL for node "model.dbt_playground.customer_activity"
+[0m13:14:15.813037 [debug] [Thread-4 (]: Began executing node model.dbt_playground.customer_activity
+[0m13:14:15.886635 [debug] [Thread-4 (]: Writing runtime sql for node "model.dbt_playground.customer_activity"
+[0m13:14:15.890916 [debug] [Thread-4 (]: Using trino connection "model.dbt_playground.customer_activity"
+[0m13:14:15.891505 [debug] [Thread-4 (]: On model.dbt_playground.customer_activity: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.customer_activity"} */
+
+  
+    
+
+    create table "iceberg"."public"."customer_activity"
+      
+      
+    as (
+      with customers as (
+    select * from "iceberg"."public"."stg_customers"
+),
+events as (
+    select * from "iceberg"."public"."stg_events"
+)
+select
+    c.customer_id,
+    c.name,
+    count(e.event_id) as total_events
+from customers c
+left join events e on c.customer_id = e.customer_id
+group by 1, 2
+    )
+[0m13:14:15.891997 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m13:14:17.814339 [debug] [Thread-4 (]: SQL status: CREATE TABLE (3 rows) in 1.922 seconds
+[0m13:14:17.817730 [debug] [Thread-4 (]: On model.dbt_playground.customer_activity: ROLLBACK
+[0m13:14:17.818493 [debug] [Thread-4 (]: On model.dbt_playground.customer_activity: Close
+[0m13:14:17.819722 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f4a6b644-737e-40c9-aba7-25f16bef2b36', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d3009e59f0>]}
+[0m13:14:17.820789 [info ] [Thread-4 (]: 3 of 3 OK created sql table model public.customer_activity ..................... [[32mCREATE TABLE (3 rows)[0m in 2.01s]
+[0m13:14:17.821765 [debug] [Thread-4 (]: Finished running node model.dbt_playground.customer_activity
+[0m13:14:17.826237 [debug] [MainThread]: On master: COMMIT
+[0m13:14:17.826923 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:14:17.827332 [debug] [MainThread]: Connection 'model.dbt_playground.stg_customers' was properly closed.
+[0m13:14:17.827714 [debug] [MainThread]: Connection 'model.dbt_playground.stg_events' was properly closed.
+[0m13:14:17.828056 [debug] [MainThread]: Connection 'model.dbt_playground.customer_activity' was properly closed.
+[0m13:14:17.828676 [info ] [MainThread]: 
+[0m13:14:17.829296 [info ] [MainThread]: Finished running 1 table model, 2 view models in 0 hours 0 minutes and 4.54 seconds (4.54s).
+[0m13:14:17.831346 [debug] [MainThread]: Command end result
+[0m13:14:17.871509 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m13:14:17.873901 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m13:14:17.883554 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dbt_project/target/run_results.json
+[0m13:14:17.884457 [info ] [MainThread]: 
+[0m13:14:17.885105 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m13:14:17.885585 [info ] [MainThread]: 
+[0m13:14:17.886138 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m13:14:17.887502 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 7.242139, "process_in_blocks": "0", "process_kernel_time": 0.389364, "process_mem_max_rss": "124700", "process_out_blocks": "2856", "process_user_time": 5.025239}
+[0m13:14:17.888351 [debug] [MainThread]: Command `dbt run` succeeded at 13:14:17.888193 after 7.24 seconds
+[0m13:14:17.888861 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d30214c340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d3021e66b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71d3008581c0>]}
+[0m13:14:17.889376 [debug] [MainThread]: Flushing usage events
+[0m13:14:18.716056 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:14:59.779043 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1d17e4370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1d07a4760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1d07a4700>]}
+
+
+============================== 13:14:59.782759 | 44e29c30-f4c8-4417-932c-2f5d453f3a30 ==============================
+[0m13:14:59.782759 [info ] [MainThread]: Running with dbt=1.11.2
+[0m13:14:59.784226 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'log_cache_events': 'False', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt docs generate', 'log_path': '/usr/app/dbt_project/logs', 'debug': 'False', 'empty': 'None', 'warn_error': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'quiet': 'False', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'write_json': 'True', 'no_print': 'None', 'static_parser': 'True', 'introspect': 'True', 'profiles_dir': '/root/.dbt', 'printer_width': '80', 'target_path': 'None'}
+[0m13:15:00.102474 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '44e29c30-f4c8-4417-932c-2f5d453f3a30', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1d07a4790>]}
+[0m13:15:00.222203 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '44e29c30-f4c8-4417-932c-2f5d453f3a30', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1d01fb370>]}
+[0m13:15:00.223239 [info ] [MainThread]: Registered adapter: trino=1.10.0
+[0m13:15:00.351839 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m13:15:00.533310 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:15:00.533898 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m13:15:00.534247 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:15:00.587904 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '44e29c30-f4c8-4417-932c-2f5d453f3a30', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1cff4e260>]}
+[0m13:15:00.597268 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '44e29c30-f4c8-4417-932c-2f5d453f3a30', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1cff14370>]}
+[0m13:15:00.598152 [info ] [MainThread]: Found 3 models, 3 sources, 455 macros
+[0m13:15:00.598701 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '44e29c30-f4c8-4417-932c-2f5d453f3a30', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1cff14070>]}
+[0m13:15:00.600994 [info ] [MainThread]: 
+[0m13:15:00.601620 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m13:15:00.603043 [info ] [MainThread]: 
+[0m13:15:00.604810 [debug] [MainThread]: Acquiring new trino connection 'master'
+[0m13:15:00.612449 [debug] [ThreadPool]: Acquiring new trino connection 'list_iceberg_public'
+[0m13:15:00.748501 [debug] [ThreadPool]: Using trino connection "list_iceberg_public"
+[0m13:15:00.749175 [debug] [ThreadPool]: On list_iceberg_public: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "list_iceberg_public"} */
+select
+      t.table_catalog as database,
+      t.table_name as name,
+      t.table_schema as schema,
+      case when mv.name is not null then 'materialized_view'
+           when t.table_type = 'BASE TABLE' then 'table'
+           when t.table_type = 'VIEW' then 'view'
+           else t.table_type
+      end as table_type
+    from "iceberg".INFORMATION_SCHEMA.tables t
+    left join (
+            select * from system.metadata.materialized_views
+            where catalog_name = 'iceberg'
+              and schema_name = 'public') mv
+          on mv.catalog_name = t.table_catalog and mv.schema_name = t.table_schema and mv.name = t.table_name
+    where t.table_schema = 'public'
+[0m13:15:00.749798 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:15:00.750138 [warn ] [ThreadPool]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m13:15:00.752514 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': '44e29c30-f4c8-4417-932c-2f5d453f3a30', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1d02f83d0>]}
+[0m13:15:01.136120 [debug] [ThreadPool]: SQL status: SUCCESS in 0.386 seconds
+[0m13:15:01.137991 [debug] [ThreadPool]: On list_iceberg_public: ROLLBACK
+[0m13:15:01.138597 [debug] [ThreadPool]: On list_iceberg_public: Close
+[0m13:15:01.142997 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '44e29c30-f4c8-4417-932c-2f5d453f3a30', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1cfef85b0>]}
+[0m13:15:01.150571 [debug] [Thread-1 (]: Began running node model.dbt_playground.stg_customers
+[0m13:15:01.151331 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_iceberg_public, now model.dbt_playground.stg_customers)
+[0m13:15:01.152004 [debug] [Thread-2 (]: Began running node model.dbt_playground.stg_events
+[0m13:15:01.152705 [debug] [Thread-1 (]: Began compiling node model.dbt_playground.stg_customers
+[0m13:15:01.153494 [debug] [Thread-2 (]: Acquiring new trino connection 'model.dbt_playground.stg_events'
+[0m13:15:01.157872 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_playground.stg_customers"
+[0m13:15:01.158841 [debug] [Thread-2 (]: Began compiling node model.dbt_playground.stg_events
+[0m13:15:01.164496 [debug] [Thread-2 (]: Writing injected SQL for node "model.dbt_playground.stg_events"
+[0m13:15:01.165699 [debug] [Thread-2 (]: Began executing node model.dbt_playground.stg_events
+[0m13:15:01.166411 [debug] [Thread-1 (]: Began executing node model.dbt_playground.stg_customers
+[0m13:15:01.167541 [debug] [Thread-2 (]: Finished running node model.dbt_playground.stg_events
+[0m13:15:01.168714 [debug] [Thread-1 (]: Finished running node model.dbt_playground.stg_customers
+[0m13:15:01.170527 [debug] [Thread-4 (]: Began running node model.dbt_playground.customer_activity
+[0m13:15:01.171493 [debug] [Thread-4 (]: Acquiring new trino connection 'model.dbt_playground.customer_activity'
+[0m13:15:01.172063 [debug] [Thread-4 (]: Began compiling node model.dbt_playground.customer_activity
+[0m13:15:01.176525 [debug] [Thread-4 (]: Writing injected SQL for node "model.dbt_playground.customer_activity"
+[0m13:15:01.177710 [debug] [Thread-4 (]: Began executing node model.dbt_playground.customer_activity
+[0m13:15:01.178998 [debug] [Thread-4 (]: Finished running node model.dbt_playground.customer_activity
+[0m13:15:01.181741 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:15:01.182271 [debug] [MainThread]: Connection 'model.dbt_playground.stg_customers' was properly closed.
+[0m13:15:01.182651 [debug] [MainThread]: Connection 'model.dbt_playground.stg_events' was properly closed.
+[0m13:15:01.183010 [debug] [MainThread]: Connection 'model.dbt_playground.customer_activity' was properly closed.
+[0m13:15:01.184089 [debug] [MainThread]: Command end result
+[0m13:15:01.305119 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m13:15:01.307323 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m13:15:01.316892 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dbt_project/target/run_results.json
+[0m13:15:01.322035 [debug] [MainThread]: Acquiring new trino connection 'generate_catalog'
+[0m13:15:01.322497 [info ] [MainThread]: Building catalog
+[0m13:15:01.326134 [debug] [ThreadPool]: Acquiring new trino connection 'iceberg.information_schema'
+[0m13:15:01.327453 [debug] [ThreadPool]: Acquiring new trino connection 'postgres.information_schema'
+[0m13:15:01.386039 [debug] [ThreadPool]: Using trino connection "postgres.information_schema"
+[0m13:15:01.392120 [debug] [ThreadPool]: Using trino connection "iceberg.information_schema"
+[0m13:15:01.392814 [debug] [ThreadPool]: On postgres.information_schema: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "postgres.information_schema"} */
+
+    
+        with tables as (
+            select
+        table_catalog as "table_database",
+        table_schema as "table_schema",
+        table_name as "table_name",
+        table_type as "table_type",
+        null as "table_owner"
+    from "postgres".INFORMATION_SCHEMA.tables
+            where
+        table_schema != 'information_schema'
+        and
+        (
+                    (
+                        table_schema = 'public'
+                        and table_name = 'customers'
+                    )
+                 or 
+                    (
+                        table_schema = 'public'
+                        and table_name = 'products'
+                    )
+                )
+        ),
+        columns as (
+            select
+        table_catalog as "table_database",
+        table_schema as "table_schema",
+        table_name as "table_name",
+        column_name as "column_name",
+        ordinal_position as "column_index",
+        data_type as "column_type",
+        comment as "column_comment"
+    from "postgres".INFORMATION_SCHEMA.columns
+            where
+        table_schema != 'information_schema'
+        and
+        (
+                    (
+                        table_schema = 'public'
+                        and table_name = 'customers'
+                    )
+                 or 
+                    (
+                        table_schema = 'public'
+                        and table_name = 'products'
+                    )
+                )
+        ),
+        table_comment as (
+            
+    select
+        catalog_name as "table_database",
+        schema_name as "table_schema",
+        table_name as "table_name",
+        comment as "table_comment"
+    from system.metadata.table_comments
+    where
+        catalog_name = 'postgres'
+        and
+        schema_name != 'information_schema'
+        and
+        
+                (
+                    schema_name = 'public'
+                    and table_name = 'customers'
+                )
+            
+    union all
+    
+    select
+        catalog_name as "table_database",
+        schema_name as "table_schema",
+        table_name as "table_name",
+        comment as "table_comment"
+    from system.metadata.table_comments
+    where
+        catalog_name = 'postgres'
+        and
+        schema_name != 'information_schema'
+        and
+        
+                (
+                    schema_name = 'public'
+                    and table_name = 'products'
+                )
+            
+        )
+        select
+            table_database,
+            table_schema,
+            table_name,
+            table_type,
+            table_owner,
+            column_name,
+            column_index,
+            column_type,
+            column_comment,
+            table_comment
+        from tables
+        join columns using ("table_database", "table_schema", "table_name")
+        join table_comment using ("table_database", "table_schema", "table_name")
+        order by "column_index"
+[0m13:15:01.393808 [debug] [ThreadPool]: On iceberg.information_schema: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "iceberg.information_schema"} */
+
+    
+        with tables as (
+            select
+        table_catalog as "table_database",
+        table_schema as "table_schema",
+        table_name as "table_name",
+        table_type as "table_type",
+        null as "table_owner"
+    from "iceberg".INFORMATION_SCHEMA.tables
+            where
+        table_schema != 'information_schema'
+        and
+        (
+                    (
+                        table_schema = 'public'
+                        and table_name = 'stg_events'
+                    )
+                 or 
+                    (
+                        table_schema = 'public'
+                        and table_name = 'stg_customers'
+                    )
+                 or 
+                    (
+                        table_schema = 'data'
+                        and table_name = 'events'
+                    )
+                 or 
+                    (
+                        table_schema = 'public'
+                        and table_name = 'customer_activity'
+                    )
+                )
+        ),
+        columns as (
+            select
+        table_catalog as "table_database",
+        table_schema as "table_schema",
+        table_name as "table_name",
+        column_name as "column_name",
+        ordinal_position as "column_index",
+        data_type as "column_type",
+        comment as "column_comment"
+    from "iceberg".INFORMATION_SCHEMA.columns
+            where
+        table_schema != 'information_schema'
+        and
+        (
+                    (
+                        table_schema = 'public'
+                        and table_name = 'stg_events'
+                    )
+                 or 
+                    (
+                        table_schema = 'public'
+                        and table_name = 'stg_customers'
+                    )
+                 or 
+                    (
+                        table_schema = 'data'
+                        and table_name = 'events'
+                    )
+                 or 
+                    (
+                        table_schema = 'public'
+                        and table_name = 'customer_activity'
+                    )
+                )
+        ),
+        table_comment as (
+            
+    select
+        catalog_name as "table_database",
+        schema_name as "table_schema",
+        table_name as "table_name",
+        comment as "table_comment"
+    from system.metadata.table_comments
+    where
+        catalog_name = 'iceberg'
+        and
+        schema_name != 'information_schema'
+        and
+        
+                (
+                    schema_name = 'public'
+                    and table_name = 'stg_events'
+                )
+            
+    union all
+    
+    select
+        catalog_name as "table_database",
+        schema_name as "table_schema",
+        table_name as "table_name",
+        comment as "table_comment"
+    from system.metadata.table_comments
+    where
+        catalog_name = 'iceberg'
+        and
+        schema_name != 'information_schema'
+        and
+        
+                (
+                    schema_name = 'public'
+                    and table_name = 'stg_customers'
+                )
+            
+    union all
+    
+    select
+        catalog_name as "table_database",
+        schema_name as "table_schema",
+        table_name as "table_name",
+        comment as "table_comment"
+    from system.metadata.table_comments
+    where
+        catalog_name = 'iceberg'
+        and
+        schema_name != 'information_schema'
+        and
+        
+                (
+                    schema_name = 'data'
+                    and table_name = 'events'
+                )
+            
+    union all
+    
+    select
+        catalog_name as "table_database",
+        schema_name as "table_schema",
+        table_name as "table_name",
+        comment as "table_comment"
+    from system.metadata.table_comments
+    where
+        catalog_name = 'iceberg'
+        and
+        schema_name != 'information_schema'
+        and
+        
+                (
+                    schema_name = 'public'
+                    and table_name = 'customer_activity'
+                )
+            
+        )
+        select
+            table_database,
+            table_schema,
+            table_name,
+            table_type,
+            table_owner,
+            column_name,
+            column_index,
+            column_type,
+            column_comment,
+            table_comment
+        from tables
+        join columns using ("table_database", "table_schema", "table_name")
+        join table_comment using ("table_database", "table_schema", "table_name")
+        order by "column_index"
+[0m13:15:01.394823 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:15:01.395483 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:15:02.683595 [debug] [ThreadPool]: SQL status: SUCCESS in 1.289 seconds
+[0m13:15:02.692497 [debug] [ThreadPool]: On postgres.information_schema: Close
+[0m13:15:03.269912 [debug] [ThreadPool]: SQL status: SUCCESS in 1.874 seconds
+[0m13:15:03.273923 [debug] [ThreadPool]: On iceberg.information_schema: Close
+[0m13:15:03.322537 [debug] [MainThread]: Wrote artifact CatalogArtifact to /usr/app/dbt_project/target/catalog.json
+[0m13:15:03.365159 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m13:15:03.369757 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m13:15:03.371258 [info ] [MainThread]: Catalog written to /usr/app/dbt_project/target/catalog.json
+[0m13:15:03.372950 [debug] [MainThread]: Resource report: {"command_name": "generate", "command_success": true, "command_wall_clock_time": 3.698727, "process_in_blocks": "0", "process_kernel_time": 0.362305, "process_mem_max_rss": "116136", "process_out_blocks": "5288", "process_user_time": 3.097918}
+[0m13:15:03.374350 [debug] [MainThread]: Command `dbt docs generate` succeeded at 13:15:03.373535 after 3.70 seconds
+[0m13:15:03.374978 [debug] [MainThread]: Connection 'generate_catalog' was properly closed.
+[0m13:15:03.375421 [debug] [MainThread]: Connection 'iceberg.information_schema' was properly closed.
+[0m13:15:03.376534 [debug] [MainThread]: Connection 'postgres.information_schema' was properly closed.
+[0m13:15:03.377785 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1d17e4370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1cfef8160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1cfefb520>]}
+[0m13:15:03.378375 [debug] [MainThread]: Flushing usage events
+[0m13:15:04.207243 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:15:21.442833 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78b8018142e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78b8007b4610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78b8007b45b0>]}
+
+
+============================== 13:15:21.446004 | f1ddb4a3-4c3a-44bc-b9ea-c15045c8b771 ==============================
+[0m13:15:21.446004 [info ] [MainThread]: Running with dbt=1.11.2
+[0m13:15:21.446765 [debug] [MainThread]: running dbt with arguments {'empty': 'None', 'log_cache_events': 'False', 'warn_error': 'None', 'use_experimental_parser': 'False', 'log_path': '/usr/app/dbt_project/logs', 'indirect_selection': 'eager', 'no_print': 'None', 'static_parser': 'True', 'fail_fast': 'False', 'printer_width': '80', 'cache_selected_only': 'False', 'use_colors': 'True', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'introspect': 'True', 'profiles_dir': '/root/.dbt', 'invocation_command': 'dbt docs serve --port 8081 --host 0.0.0.0', 'target_path': 'None', 'debug': 'False', 'partial_parse': 'True', 'version_check': 'True', 'quiet': 'False'}
+[0m13:15:21.752880 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f1ddb4a3-4c3a-44bc-b9ea-c15045c8b771', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78b8016cff40>]}
+[0m13:15:21.880153 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f1ddb4a3-4c3a-44bc-b9ea-c15045c8b771', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78b80100ed40>]}
+[0m13:20:06.631781 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac3fa458250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac3f93f8340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac3f93f82e0>]}
+
+
+============================== 13:20:06.635727 | 60243535-c506-45a8-996c-5bba33f40712 ==============================
+[0m13:20:06.635727 [info ] [MainThread]: Running with dbt=1.11.2
+[0m13:20:06.636454 [debug] [MainThread]: running dbt with arguments {'write_json': 'True', 'warn_error': 'None', 'introspect': 'True', 'quiet': 'False', 'cache_selected_only': 'False', 'profiles_dir': '/root/.dbt', 'debug': 'False', 'use_colors': 'True', 'log_format': 'default', 'target_path': 'None', 'version_check': 'True', 'log_path': '/usr/app/dbt_project/logs', 'invocation_command': 'dbt deps', 'static_parser': 'True', 'empty': 'None', 'no_print': 'None', 'printer_width': '80', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'use_experimental_parser': 'False'}
+[0m13:20:06.642876 [warn ] [MainThread]: [[33mWARNING[0m][MissingPlusPrefixDeprecation]: Deprecated functionality
+Missing '+' prefix on `materialized` found at
+`dbt_playground.staging.materialized` in file
+`/usr/app/dbt_project/dbt_project.yml`. Hierarchical config values without a '+'
+prefix are deprecated in dbt_project.yml.
+[0m13:20:06.643613 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '60243535-c506-45a8-996c-5bba33f40712', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac3f93f8ac0>]}
+[0m13:20:06.867342 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '60243535-c506-45a8-996c-5bba33f40712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac3f93f8d30>]}
+[0m13:20:06.882523 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m13:20:06.884040 [info ] [MainThread]: Warning: No packages were found in packages.yml
+[0m13:20:06.884868 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingPlusPrefixDeprecation: 3 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m13:20:06.887997 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.3792293, "process_in_blocks": "56", "process_kernel_time": 0.485225, "process_mem_max_rss": "99844", "process_out_blocks": "8", "process_user_time": 2.140702}
+[0m13:20:06.888689 [debug] [MainThread]: Command `dbt deps` succeeded at 13:20:06.888533 after 0.38 seconds
+[0m13:20:06.889346 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac3fa458250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac3f93f8d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ac3fc0d1150>]}
+[0m13:20:06.889852 [debug] [MainThread]: Flushing usage events
+[0m13:20:07.720728 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:20:36.000722 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7070a2a682b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7070a1a103d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7070a1a10370>]}
+
+
+============================== 13:20:36.004177 | d3d05c71-9f97-4518-b9cd-c5f24a06b91a ==============================
+[0m13:20:36.004177 [info ] [MainThread]: Running with dbt=1.11.2
+[0m13:20:36.004927 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'introspect': 'True', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'static_parser': 'True', 'log_path': '/usr/app/dbt_project/logs', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'target_path': 'None', 'log_cache_events': 'False', 'cache_selected_only': 'False', 'invocation_command': 'dbt debug', 'printer_width': '80', 'partial_parse': 'True', 'profiles_dir': '/root/.dbt', 'warn_error': 'None', 'debug': 'False', 'use_experimental_parser': 'False', 'log_format': 'default', 'fail_fast': 'False', 'use_colors': 'True', 'version_check': 'True', 'write_json': 'True'}
+[0m13:20:36.016832 [info ] [MainThread]: dbt version: 1.11.2
+[0m13:20:36.017529 [info ] [MainThread]: python version: 3.10.19
+[0m13:20:36.017937 [info ] [MainThread]: python path: /usr/local/bin/python3.10
+[0m13:20:36.018318 [info ] [MainThread]: os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.41
+[0m13:20:36.112814 [info ] [MainThread]: Using profiles dir at /root/.dbt
+[0m13:20:36.114103 [info ] [MainThread]: Using profiles.yml file at /root/.dbt/profiles.yml
+[0m13:20:36.116134 [info ] [MainThread]: Using dbt_project.yml file at /usr/app/dbt_project/dbt_project.yml
+[0m13:20:36.116666 [info ] [MainThread]: adapter type: trino
+[0m13:20:36.117055 [info ] [MainThread]: adapter version: 1.10.0
+[0m13:20:36.308137 [info ] [MainThread]: Configuration:
+[0m13:20:36.308706 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:20:36.309848 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m13:20:36.310972 [info ] [MainThread]: Required dependencies:
+[0m13:20:36.311496 [debug] [MainThread]: Executing "git --help"
+[0m13:20:36.314798 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m13:20:36.315442 [debug] [MainThread]: STDERR: "b''"
+[0m13:20:36.315898 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m13:20:36.316317 [info ] [MainThread]: Connection:
+[0m13:20:36.316737 [info ] [MainThread]:   host: trino
+[0m13:20:36.317225 [info ] [MainThread]:   port: 8080
+[0m13:20:36.317573 [info ] [MainThread]:   user: admin
+[0m13:20:36.317988 [info ] [MainThread]:   database: iceberg
+[0m13:20:36.318329 [info ] [MainThread]:   schema: public
+[0m13:20:36.318737 [info ] [MainThread]:   cert: None
+[0m13:20:36.319180 [info ] [MainThread]:   prepared_statements_enabled: True
+[0m13:20:36.319792 [info ] [MainThread]: Registered adapter: trino=1.10.0
+[0m13:20:36.428707 [debug] [MainThread]: Acquiring new trino connection 'debug'
+[0m13:20:36.474829 [debug] [MainThread]: Using trino connection "debug"
+[0m13:20:36.475991 [debug] [MainThread]: On debug: select 1 as id
+[0m13:20:36.476516 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:20:36.477030 [warn ] [MainThread]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m13:20:36.478254 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': 'd3d05c71-9f97-4518-b9cd-c5f24a06b91a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7070a171f1f0>]}
+[0m13:20:36.560315 [debug] [MainThread]: SQL status: SUCCESS in 0.084 seconds
+[0m13:20:36.561611 [debug] [MainThread]: On debug: Close
+[0m13:20:36.562266 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m13:20:36.562791 [info ] [MainThread]: [32mAll checks passed![0m
+[0m13:20:36.564422 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 0.6674434, "process_in_blocks": "0", "process_kernel_time": 0.224509, "process_mem_max_rss": "107800", "process_out_blocks": "24", "process_user_time": 2.347145}
+[0m13:20:36.565487 [debug] [MainThread]: Command `dbt debug` succeeded at 13:20:36.565311 after 0.67 seconds
+[0m13:20:36.567500 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:20:36.568222 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7070a2a682b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7070a1937af0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7070a2af6500>]}
+[0m13:20:36.568909 [debug] [MainThread]: Flushing usage events
+[0m13:20:37.402403 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:20:43.252213 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f2a2042b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f291984c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f29198460>]}
+
+
+============================== 13:20:43.257516 | 06e84ea3-b0f0-4ea9-b3b9-782960984167 ==============================
+[0m13:20:43.257516 [info ] [MainThread]: Running with dbt=1.11.2
+[0m13:20:43.260258 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'log_format': 'default', 'warn_error': 'None', 'no_print': 'None', 'indirect_selection': 'eager', 'log_path': '/usr/app/dbt_project/logs', 'printer_width': '80', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'empty': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'debug': 'False', 'version_check': 'True', 'partial_parse': 'True', 'static_parser': 'True', 'use_colors': 'True', 'quiet': 'False', 'use_experimental_parser': 'False', 'profiles_dir': '/root/.dbt', 'write_json': 'True', 'invocation_command': 'dbt run', 'target_path': 'None', 'cache_selected_only': 'False'}
+[0m13:20:43.708313 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '06e84ea3-b0f0-4ea9-b3b9-782960984167', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f2be7d0c0>]}
+[0m13:20:43.823826 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '06e84ea3-b0f0-4ea9-b3b9-782960984167', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f294febc0>]}
+[0m13:20:43.824718 [info ] [MainThread]: Registered adapter: trino=1.10.0
+[0m13:20:43.946552 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m13:20:44.097726 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:20:44.098191 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m13:20:44.098534 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:20:44.151264 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '06e84ea3-b0f0-4ea9-b3b9-782960984167', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f28946020>]}
+[0m13:20:44.320342 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m13:20:44.322916 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m13:20:44.330929 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '06e84ea3-b0f0-4ea9-b3b9-782960984167', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f28975300>]}
+[0m13:20:44.331675 [info ] [MainThread]: Found 3 models, 3 sources, 455 macros
+[0m13:20:44.332305 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '06e84ea3-b0f0-4ea9-b3b9-782960984167', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f28975240>]}
+[0m13:20:44.334722 [info ] [MainThread]: 
+[0m13:20:44.335346 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m13:20:44.335748 [info ] [MainThread]: 
+[0m13:20:44.336389 [debug] [MainThread]: Acquiring new trino connection 'master'
+[0m13:20:44.343497 [debug] [ThreadPool]: Acquiring new trino connection 'list_iceberg'
+[0m13:20:44.409272 [debug] [ThreadPool]: Using trino connection "list_iceberg"
+[0m13:20:44.409777 [debug] [ThreadPool]: On list_iceberg: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "list_iceberg"} */
+
+    select schema_name
+    from "iceberg".INFORMATION_SCHEMA.schemata
+[0m13:20:44.410143 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:20:44.410467 [warn ] [ThreadPool]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m13:20:44.411134 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': '06e84ea3-b0f0-4ea9-b3b9-782960984167', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f29335c90>]}
+[0m13:20:44.524853 [debug] [ThreadPool]: SQL status: SUCCESS in 0.115 seconds
+[0m13:20:44.526411 [debug] [ThreadPool]: On list_iceberg: Close
+[0m13:20:44.528416 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_iceberg, now list_iceberg_public)
+[0m13:20:44.552638 [debug] [ThreadPool]: Using trino connection "list_iceberg_public"
+[0m13:20:44.553254 [debug] [ThreadPool]: On list_iceberg_public: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "list_iceberg_public"} */
+select
+      t.table_catalog as database,
+      t.table_name as name,
+      t.table_schema as schema,
+      case when mv.name is not null then 'materialized_view'
+           when t.table_type = 'BASE TABLE' then 'table'
+           when t.table_type = 'VIEW' then 'view'
+           else t.table_type
+      end as table_type
+    from "iceberg".INFORMATION_SCHEMA.tables t
+    left join (
+            select * from system.metadata.materialized_views
+            where catalog_name = 'iceberg'
+              and schema_name = 'public') mv
+          on mv.catalog_name = t.table_catalog and mv.schema_name = t.table_schema and mv.name = t.table_name
+    where t.table_schema = 'public'
+[0m13:20:44.553696 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:20:44.792907 [debug] [ThreadPool]: SQL status: SUCCESS in 0.239 seconds
+[0m13:20:44.794675 [debug] [ThreadPool]: On list_iceberg_public: ROLLBACK
+[0m13:20:44.795196 [debug] [ThreadPool]: On list_iceberg_public: Close
+[0m13:20:44.797171 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '06e84ea3-b0f0-4ea9-b3b9-782960984167', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f294fe110>]}
+[0m13:20:44.797779 [debug] [MainThread]: On master: COMMIT
+[0m13:20:44.803095 [debug] [Thread-1 (]: Began running node model.dbt_playground.stg_customers
+[0m13:20:44.803707 [debug] [Thread-2 (]: Began running node model.dbt_playground.stg_events
+[0m13:20:44.804608 [info ] [Thread-1 (]: 1 of 3 START sql view model public.stg_customers ............................... [RUN]
+[0m13:20:44.806458 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_iceberg_public, now model.dbt_playground.stg_customers)
+[0m13:20:44.805358 [info ] [Thread-2 (]: 2 of 3 START sql view model public.stg_events .................................. [RUN]
+[0m13:20:44.807217 [debug] [Thread-1 (]: Began compiling node model.dbt_playground.stg_customers
+[0m13:20:44.808271 [debug] [Thread-2 (]: Acquiring new trino connection 'model.dbt_playground.stg_events'
+[0m13:20:44.813882 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_playground.stg_customers"
+[0m13:20:44.814729 [debug] [Thread-2 (]: Began compiling node model.dbt_playground.stg_events
+[0m13:20:44.820644 [debug] [Thread-2 (]: Writing injected SQL for node "model.dbt_playground.stg_events"
+[0m13:20:44.821313 [debug] [Thread-1 (]: Began executing node model.dbt_playground.stg_customers
+[0m13:20:44.821997 [debug] [Thread-2 (]: Began executing node model.dbt_playground.stg_events
+[0m13:20:44.860713 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_playground.stg_customers"
+[0m13:20:44.861431 [debug] [Thread-2 (]: Writing runtime sql for node "model.dbt_playground.stg_events"
+[0m13:20:44.863337 [debug] [Thread-1 (]: Using trino connection "model.dbt_playground.stg_customers"
+[0m13:20:44.864925 [debug] [Thread-2 (]: Using trino connection "model.dbt_playground.stg_events"
+[0m13:20:44.865497 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.stg_customers"} */
+
+  create or replace view
+    "iceberg"."public"."stg_customers"
+  security definer
+  as
+    select
+    id as customer_id,
+    name,
+    email
+from "postgres"."public"."customers"
+  
+[0m13:20:44.866021 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.stg_events"} */
+
+  create or replace view
+    "iceberg"."public"."stg_events"
+  security definer
+  as
+    select
+    event_id,
+    user_id as customer_id,
+    event_type,
+    event_time
+from "iceberg"."data"."events"
+  
+[0m13:20:44.866502 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:20:44.866999 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m13:20:45.233285 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.366 seconds
+[0m13:20:45.248219 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.382 seconds
+[0m13:20:45.279517 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: ROLLBACK
+[0m13:20:45.280150 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: ROLLBACK
+[0m13:20:45.280729 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: Close
+[0m13:20:45.281227 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: Close
+[0m13:20:45.284314 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '06e84ea3-b0f0-4ea9-b3b9-782960984167', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f23d55360>]}
+[0m13:20:45.284963 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '06e84ea3-b0f0-4ea9-b3b9-782960984167', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f28f15060>]}
+[0m13:20:45.286040 [info ] [Thread-2 (]: 2 of 3 OK created sql view model public.stg_events ............................. [[32mCREATE VIEW[0m in 0.47s]
+[0m13:20:45.287082 [info ] [Thread-1 (]: 1 of 3 OK created sql view model public.stg_customers .......................... [[32mCREATE VIEW[0m in 0.48s]
+[0m13:20:45.288661 [debug] [Thread-2 (]: Finished running node model.dbt_playground.stg_events
+[0m13:20:45.289514 [debug] [Thread-1 (]: Finished running node model.dbt_playground.stg_customers
+[0m13:20:45.291828 [debug] [Thread-4 (]: Began running node model.dbt_playground.customer_activity
+[0m13:20:45.292751 [info ] [Thread-4 (]: 3 of 3 START sql table model public.customer_activity .......................... [RUN]
+[0m13:20:45.293457 [debug] [Thread-4 (]: Acquiring new trino connection 'model.dbt_playground.customer_activity'
+[0m13:20:45.293933 [debug] [Thread-4 (]: Began compiling node model.dbt_playground.customer_activity
+[0m13:20:45.297943 [debug] [Thread-4 (]: Writing injected SQL for node "model.dbt_playground.customer_activity"
+[0m13:20:45.298790 [debug] [Thread-4 (]: Began executing node model.dbt_playground.customer_activity
+[0m13:20:45.364520 [debug] [Thread-4 (]: Writing runtime sql for node "model.dbt_playground.customer_activity"
+[0m13:20:45.367328 [debug] [Thread-4 (]: Using trino connection "model.dbt_playground.customer_activity"
+[0m13:20:45.367977 [debug] [Thread-4 (]: On model.dbt_playground.customer_activity: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.customer_activity"} */
+
+  
+    
+
+    create table "iceberg"."public"."customer_activity__dbt_tmp"
+      
+      
+    as (
+      with customers as (
+    select * from "iceberg"."public"."stg_customers"
+),
+events as (
+    select * from "iceberg"."public"."stg_events"
+)
+select
+    c.customer_id,
+    c.name,
+    count(e.event_id) as total_events
+from customers c
+left join events e on c.customer_id = e.customer_id
+group by 1, 2
+    )
+[0m13:20:45.368553 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m13:20:46.413409 [debug] [Thread-4 (]: SQL status: CREATE TABLE (3 rows) in 0.868 seconds
+[0m13:20:46.422551 [debug] [Thread-4 (]: Using trino connection "model.dbt_playground.customer_activity"
+[0m13:20:46.423115 [debug] [Thread-4 (]: On model.dbt_playground.customer_activity: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.customer_activity"} */
+alter table "iceberg"."public"."customer_activity" rename to "iceberg"."public"."customer_activity__dbt_backup"
+[0m13:20:46.550222 [debug] [Thread-4 (]: SQL status: RENAME TABLE in 0.127 seconds
+[0m13:20:46.555057 [debug] [Thread-4 (]: Using trino connection "model.dbt_playground.customer_activity"
+[0m13:20:46.555607 [debug] [Thread-4 (]: On model.dbt_playground.customer_activity: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.customer_activity"} */
+alter table "iceberg"."public"."customer_activity__dbt_tmp" rename to "iceberg"."public"."customer_activity"
+[0m13:20:46.689264 [debug] [Thread-4 (]: SQL status: RENAME TABLE in 0.133 seconds
+[0m13:20:46.699800 [debug] [Thread-4 (]: Applying DROP to: "iceberg"."public"."customer_activity__dbt_backup"
+[0m13:20:46.702739 [debug] [Thread-4 (]: Using trino connection "model.dbt_playground.customer_activity"
+[0m13:20:46.703442 [debug] [Thread-4 (]: On model.dbt_playground.customer_activity: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.customer_activity"} */
+
+    drop table if exists "iceberg"."public"."customer_activity__dbt_backup"
+[0m13:20:46.776574 [debug] [Thread-4 (]: Trino adapter: Trino query id: 20260110_132041_00034_wjppr
+[0m13:20:46.777353 [debug] [Thread-4 (]: Trino adapter: Trino error: TrinoExternalError(type=EXTERNAL, name=ICEBERG_CATALOG_ERROR, message="Failed to drop table 'customer_activity__dbt_backup'", query_id=20260110_132041_00034_wjppr)
+[0m13:20:46.778022 [debug] [Thread-4 (]: On model.dbt_playground.customer_activity: ROLLBACK
+[0m13:20:46.778586 [debug] [Thread-4 (]: On model.dbt_playground.customer_activity: Close
+[0m13:20:46.791563 [debug] [Thread-4 (]: Database Error in model customer_activity (models/marts/customer_activity.sql)
+  TrinoExternalError(type=EXTERNAL, name=ICEBERG_CATALOG_ERROR, message="Failed to drop table 'customer_activity__dbt_backup'", query_id=20260110_132041_00034_wjppr)
+  compiled code at target/run/dbt_playground/models/marts/customer_activity.sql
+[0m13:20:46.793127 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '06e84ea3-b0f0-4ea9-b3b9-782960984167', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f2893e290>]}
+[0m13:20:46.794300 [error] [Thread-4 (]: 3 of 3 ERROR creating sql table model public.customer_activity ................. [[31mERROR[0m in 1.50s]
+[0m13:20:46.795320 [debug] [Thread-4 (]: Finished running node model.dbt_playground.customer_activity
+[0m13:20:46.796760 [debug] [Thread-7 (]: Marking all children of 'model.dbt_playground.customer_activity' to be skipped because of status 'error'.  Reason: Database Error in model customer_activity (models/marts/customer_activity.sql)
+  TrinoExternalError(type=EXTERNAL, name=ICEBERG_CATALOG_ERROR, message="Failed to drop table 'customer_activity__dbt_backup'", query_id=20260110_132041_00034_wjppr)
+  compiled code at target/run/dbt_playground/models/marts/customer_activity.sql.
+[0m13:20:46.800427 [debug] [MainThread]: On master: COMMIT
+[0m13:20:46.801029 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:20:46.801415 [debug] [MainThread]: Connection 'model.dbt_playground.stg_customers' was properly closed.
+[0m13:20:46.801750 [debug] [MainThread]: Connection 'model.dbt_playground.stg_events' was properly closed.
+[0m13:20:46.802061 [debug] [MainThread]: Connection 'model.dbt_playground.customer_activity' was properly closed.
+[0m13:20:46.802489 [info ] [MainThread]: 
+[0m13:20:46.802925 [info ] [MainThread]: Finished running 1 table model, 2 view models in 0 hours 0 minutes and 2.47 seconds (2.47s).
+[0m13:20:46.804266 [debug] [MainThread]: Command end result
+[0m13:20:46.868727 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m13:20:46.871030 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m13:20:46.881018 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dbt_project/target/run_results.json
+[0m13:20:46.881532 [info ] [MainThread]: 
+[0m13:20:46.881999 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m13:20:46.882449 [info ] [MainThread]: 
+[0m13:20:46.882947 [error] [MainThread]: [31mFailure in model customer_activity (models/marts/customer_activity.sql)[0m
+[0m13:20:46.883422 [error] [MainThread]:   Database Error in model customer_activity (models/marts/customer_activity.sql)
+  TrinoExternalError(type=EXTERNAL, name=ICEBERG_CATALOG_ERROR, message="Failed to drop table 'customer_activity__dbt_backup'", query_id=20260110_132041_00034_wjppr)
+  compiled code at target/run/dbt_playground/models/marts/customer_activity.sql
+[0m13:20:46.883803 [info ] [MainThread]: 
+[0m13:20:46.884250 [info ] [MainThread]:   compiled code at target/compiled/dbt_playground/models/marts/customer_activity.sql
+[0m13:20:46.884688 [info ] [MainThread]: 
+[0m13:20:46.885129 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=3
+[0m13:20:46.886907 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 3.5739553, "process_in_blocks": "232", "process_kernel_time": 0.445706, "process_mem_max_rss": "118500", "process_out_blocks": "1944", "process_user_time": 3.397997}
+[0m13:20:46.887744 [debug] [MainThread]: Command `dbt run` failed at 13:20:46.887566 after 3.58 seconds
+[0m13:20:46.888233 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f2a2042b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f2a294250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x778f20c3ffd0>]}
+[0m13:20:46.888730 [debug] [MainThread]: Flushing usage events
+[0m13:20:47.723992 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:27:27.709742 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e52925442e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e5291504520>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e52915044c0>]}
+
+
+============================== 13:27:27.713383 | 42ebbcf7-da9f-4682-b17a-e99a0299ec7d ==============================
+[0m13:27:27.713383 [info ] [MainThread]: Running with dbt=1.11.2
+[0m13:27:27.714164 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'log_path': '/usr/app/dbt_project/logs', 'log_cache_events': 'False', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'cache_selected_only': 'False', 'quiet': 'False', 'invocation_command': 'dbt run', 'debug': 'False', 'partial_parse': 'True', 'use_colors': 'True', 'version_check': 'True', 'write_json': 'True', 'profiles_dir': '/root/.dbt', 'log_format': 'default', 'empty': 'False', 'printer_width': '80', 'use_experimental_parser': 'False', 'warn_error': 'None', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'target_path': 'None'}
+[0m13:27:28.059445 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '42ebbcf7-da9f-4682-b17a-e99a0299ec7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e5291d2a8c0>]}
+[0m13:27:28.174654 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '42ebbcf7-da9f-4682-b17a-e99a0299ec7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e52914be290>]}
+[0m13:27:28.175614 [info ] [MainThread]: Registered adapter: trino=1.10.0
+[0m13:27:28.321811 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m13:27:28.513566 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:27:28.514123 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m13:27:28.514474 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:27:28.577524 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '42ebbcf7-da9f-4682-b17a-e99a0299ec7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e5290cba080>]}
+[0m13:27:28.862598 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m13:27:28.865160 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m13:27:28.874771 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '42ebbcf7-da9f-4682-b17a-e99a0299ec7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e5290ce88e0>]}
+[0m13:27:28.875544 [info ] [MainThread]: Found 3 models, 3 sources, 455 macros
+[0m13:27:28.876107 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '42ebbcf7-da9f-4682-b17a-e99a0299ec7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e5290ce89a0>]}
+[0m13:27:28.878234 [info ] [MainThread]: 
+[0m13:27:28.879200 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m13:27:28.879978 [info ] [MainThread]: 
+[0m13:27:28.881099 [debug] [MainThread]: Acquiring new trino connection 'master'
+[0m13:27:28.888789 [debug] [ThreadPool]: Acquiring new trino connection 'list_iceberg'
+[0m13:27:28.963860 [debug] [ThreadPool]: Using trino connection "list_iceberg"
+[0m13:27:28.964568 [debug] [ThreadPool]: On list_iceberg: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "list_iceberg"} */
+
+    select schema_name
+    from "iceberg".INFORMATION_SCHEMA.schemata
+[0m13:27:28.964971 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:27:28.965316 [warn ] [ThreadPool]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m13:27:28.965908 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': '42ebbcf7-da9f-4682-b17a-e99a0299ec7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e5291495cf0>]}
+[0m13:27:30.722972 [debug] [ThreadPool]: SQL status: SUCCESS in 1.758 seconds
+[0m13:27:30.724992 [debug] [ThreadPool]: On list_iceberg: Close
+[0m13:27:30.727345 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_iceberg, now list_iceberg_public)
+[0m13:27:30.751918 [debug] [ThreadPool]: Using trino connection "list_iceberg_public"
+[0m13:27:30.752519 [debug] [ThreadPool]: On list_iceberg_public: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "list_iceberg_public"} */
+select
+      t.table_catalog as database,
+      t.table_name as name,
+      t.table_schema as schema,
+      case when mv.name is not null then 'materialized_view'
+           when t.table_type = 'BASE TABLE' then 'table'
+           when t.table_type = 'VIEW' then 'view'
+           else t.table_type
+      end as table_type
+    from "iceberg".INFORMATION_SCHEMA.tables t
+    left join (
+            select * from system.metadata.materialized_views
+            where catalog_name = 'iceberg'
+              and schema_name = 'public') mv
+          on mv.catalog_name = t.table_catalog and mv.schema_name = t.table_schema and mv.name = t.table_name
+    where t.table_schema = 'public'
+[0m13:27:30.752971 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:27:31.653517 [debug] [ThreadPool]: SQL status: SUCCESS in 0.900 seconds
+[0m13:27:31.656916 [debug] [ThreadPool]: On list_iceberg_public: ROLLBACK
+[0m13:27:31.657541 [debug] [ThreadPool]: On list_iceberg_public: Close
+[0m13:27:31.661433 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '42ebbcf7-da9f-4682-b17a-e99a0299ec7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e5290c54a90>]}
+[0m13:27:31.662205 [debug] [MainThread]: On master: COMMIT
+[0m13:27:31.667971 [debug] [Thread-1 (]: Began running node model.dbt_playground.stg_customers
+[0m13:27:31.668798 [info ] [Thread-1 (]: 1 of 3 START sql view model public.stg_customers ............................... [RUN]
+[0m13:27:31.669518 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_iceberg_public, now model.dbt_playground.stg_customers)
+[0m13:27:31.670190 [debug] [Thread-1 (]: Began compiling node model.dbt_playground.stg_customers
+[0m13:27:31.675473 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_playground.stg_customers"
+[0m13:27:31.676005 [debug] [Thread-2 (]: Began running node model.dbt_playground.stg_events
+[0m13:27:31.677002 [info ] [Thread-2 (]: 2 of 3 START sql view model public.stg_events .................................. [RUN]
+[0m13:27:31.677822 [debug] [Thread-2 (]: Acquiring new trino connection 'model.dbt_playground.stg_events'
+[0m13:27:31.678353 [debug] [Thread-2 (]: Began compiling node model.dbt_playground.stg_events
+[0m13:27:31.687543 [debug] [Thread-1 (]: Began executing node model.dbt_playground.stg_customers
+[0m13:27:31.684599 [debug] [Thread-2 (]: Writing injected SQL for node "model.dbt_playground.stg_events"
+[0m13:27:31.694162 [debug] [Thread-2 (]: Began executing node model.dbt_playground.stg_events
+[0m13:27:31.743353 [debug] [Thread-2 (]: Writing runtime sql for node "model.dbt_playground.stg_events"
+[0m13:27:31.744324 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_playground.stg_customers"
+[0m13:27:31.746492 [debug] [Thread-1 (]: Using trino connection "model.dbt_playground.stg_customers"
+[0m13:27:31.747858 [debug] [Thread-2 (]: Using trino connection "model.dbt_playground.stg_events"
+[0m13:27:31.748433 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.stg_customers"} */
+
+  create or replace view
+    "iceberg"."public"."stg_customers"
+  security definer
+  as
+    select
+    id as customer_id,
+    name,
+    email
+from "postgres"."public"."customers"
+  
+[0m13:27:31.749043 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.stg_events"} */
+
+  create or replace view
+    "iceberg"."public"."stg_events"
+  security definer
+  as
+    select
+    event_id,
+    user_id as customer_id,
+    event_type,
+    event_time
+from "iceberg"."data"."events"
+  
+[0m13:27:31.749674 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:27:31.750178 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m13:27:32.673410 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.923 seconds
+[0m13:27:32.705994 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: ROLLBACK
+[0m13:27:32.706574 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: Close
+[0m13:27:32.712038 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '42ebbcf7-da9f-4682-b17a-e99a0299ec7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e5290117c40>]}
+[0m13:27:32.714194 [info ] [Thread-2 (]: 2 of 3 OK created sql view model public.stg_events ............................. [[32mCREATE VIEW[0m in 1.03s]
+[0m13:27:32.716733 [debug] [Thread-2 (]: Finished running node model.dbt_playground.stg_events
+[0m13:27:32.794299 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 1.045 seconds
+[0m13:27:32.798958 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: ROLLBACK
+[0m13:27:32.799656 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: Close
+[0m13:27:32.801244 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '42ebbcf7-da9f-4682-b17a-e99a0299ec7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e529012bfa0>]}
+[0m13:27:32.802391 [info ] [Thread-1 (]: 1 of 3 OK created sql view model public.stg_customers .......................... [[32mCREATE VIEW[0m in 1.13s]
+[0m13:27:32.803473 [debug] [Thread-1 (]: Finished running node model.dbt_playground.stg_customers
+[0m13:27:32.804767 [debug] [Thread-4 (]: Began running node model.dbt_playground.customer_activity
+[0m13:27:32.805708 [info ] [Thread-4 (]: 3 of 3 START sql table model public.customer_activity .......................... [RUN]
+[0m13:27:32.806676 [debug] [Thread-4 (]: Acquiring new trino connection 'model.dbt_playground.customer_activity'
+[0m13:27:32.807311 [debug] [Thread-4 (]: Began compiling node model.dbt_playground.customer_activity
+[0m13:27:32.813197 [debug] [Thread-4 (]: Writing injected SQL for node "model.dbt_playground.customer_activity"
+[0m13:27:32.814473 [debug] [Thread-4 (]: Began executing node model.dbt_playground.customer_activity
+[0m13:27:32.880531 [debug] [Thread-4 (]: Applying DROP to: "iceberg"."public"."customer_activity__dbt_backup"
+[0m13:27:32.883959 [debug] [Thread-4 (]: Using trino connection "model.dbt_playground.customer_activity"
+[0m13:27:32.884609 [debug] [Thread-4 (]: On model.dbt_playground.customer_activity: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.customer_activity"} */
+
+    drop table if exists "iceberg"."public"."customer_activity__dbt_backup"
+[0m13:27:32.885175 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m13:27:33.010786 [debug] [Thread-4 (]: Trino adapter: Trino query id: 20260110_132732_00004_7w8ge
+[0m13:27:33.011424 [debug] [Thread-4 (]: Trino adapter: Trino error: TrinoExternalError(type=EXTERNAL, name=ICEBERG_CATALOG_ERROR, message="Failed to drop table 'customer_activity__dbt_backup'", query_id=20260110_132732_00004_7w8ge)
+[0m13:27:33.012181 [debug] [Thread-4 (]: On model.dbt_playground.customer_activity: Close
+[0m13:27:33.018118 [debug] [Thread-4 (]: Database Error in model customer_activity (models/marts/customer_activity.sql)
+  TrinoExternalError(type=EXTERNAL, name=ICEBERG_CATALOG_ERROR, message="Failed to drop table 'customer_activity__dbt_backup'", query_id=20260110_132732_00004_7w8ge)
+[0m13:27:33.019440 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '42ebbcf7-da9f-4682-b17a-e99a0299ec7d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e52916cff40>]}
+[0m13:27:33.020576 [error] [Thread-4 (]: 3 of 3 ERROR creating sql table model public.customer_activity ................. [[31mERROR[0m in 0.21s]
+[0m13:27:33.022123 [debug] [Thread-4 (]: Finished running node model.dbt_playground.customer_activity
+[0m13:27:33.023087 [debug] [Thread-7 (]: Marking all children of 'model.dbt_playground.customer_activity' to be skipped because of status 'error'.  Reason: Database Error in model customer_activity (models/marts/customer_activity.sql)
+  TrinoExternalError(type=EXTERNAL, name=ICEBERG_CATALOG_ERROR, message="Failed to drop table 'customer_activity__dbt_backup'", query_id=20260110_132732_00004_7w8ge).
+[0m13:27:33.026337 [debug] [MainThread]: On master: COMMIT
+[0m13:27:33.027300 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:27:33.028142 [debug] [MainThread]: Connection 'model.dbt_playground.stg_customers' was properly closed.
+[0m13:27:33.029460 [debug] [MainThread]: Connection 'model.dbt_playground.stg_events' was properly closed.
+[0m13:27:33.030008 [debug] [MainThread]: Connection 'model.dbt_playground.customer_activity' was properly closed.
+[0m13:27:33.030463 [info ] [MainThread]: 
+[0m13:27:33.030889 [info ] [MainThread]: Finished running 1 table model, 2 view models in 0 hours 0 minutes and 4.15 seconds (4.15s).
+[0m13:27:33.033105 [debug] [MainThread]: Command end result
+[0m13:27:33.078181 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m13:27:33.080567 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m13:27:33.088919 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dbt_project/target/run_results.json
+[0m13:27:33.089435 [info ] [MainThread]: 
+[0m13:27:33.092043 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m13:27:33.092782 [info ] [MainThread]: 
+[0m13:27:33.093409 [error] [MainThread]: [31mFailure in model customer_activity (models/marts/customer_activity.sql)[0m
+[0m13:27:33.093985 [error] [MainThread]:   Database Error in model customer_activity (models/marts/customer_activity.sql)
+  TrinoExternalError(type=EXTERNAL, name=ICEBERG_CATALOG_ERROR, message="Failed to drop table 'customer_activity__dbt_backup'", query_id=20260110_132732_00004_7w8ge)
+[0m13:27:33.094414 [info ] [MainThread]: 
+[0m13:27:33.094858 [info ] [MainThread]:   compiled code at target/compiled/dbt_playground/models/marts/customer_activity.sql
+[0m13:27:33.095235 [info ] [MainThread]: 
+[0m13:27:33.095656 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=3
+[0m13:27:33.097096 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 5.4950566, "process_in_blocks": "0", "process_kernel_time": 0.420536, "process_mem_max_rss": "117908", "process_out_blocks": "1936", "process_user_time": 3.426137}
+[0m13:27:33.097933 [debug] [MainThread]: Command `dbt run` failed at 13:27:33.097728 after 5.50 seconds
+[0m13:27:33.098567 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e52925442e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e5291d2a8c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e52923fe560>]}
+[0m13:27:33.099189 [debug] [MainThread]: Flushing usage events
+[0m13:27:34.040515 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:35:30.282861 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02e12ec2b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02e02b04f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02e02b0490>]}
+
+
+============================== 13:35:30.285958 | 7fb953b1-963a-4690-af47-79f131b38712 ==============================
+[0m13:35:30.285958 [info ] [MainThread]: Running with dbt=1.11.2
+[0m13:35:30.286659 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'warn_error': 'None', 'profiles_dir': '/root/.dbt', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'version_check': 'True', 'debug': 'False', 'write_json': 'True', 'partial_parse': 'True', 'quiet': 'False', 'no_print': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'empty': 'False', 'invocation_command': 'dbt run', 'static_parser': 'True', 'fail_fast': 'False', 'log_format': 'default', 'target_path': 'None', 'log_path': '/usr/app/dbt_project/logs', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'use_colors': 'True'}
+[0m13:35:30.592396 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '7fb953b1-963a-4690-af47-79f131b38712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02e02b0520>]}
+[0m13:35:30.719640 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '7fb953b1-963a-4690-af47-79f131b38712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02e026b220>]}
+[0m13:35:30.720643 [info ] [MainThread]: Registered adapter: trino=1.10.0
+[0m13:35:30.845618 [debug] [MainThread]: checksum: 3d40d8bbe1bef07db1c24822f2dbfff8bc07f2a48ed4fe2658a40653aec0b54b, vars: {}, profile: , target: , version: 1.11.2
+[0m13:35:31.036475 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 1 files added, 0 files changed.
+[0m13:35:31.037142 [debug] [MainThread]: Partial parsing: added file: dbt_playground://models/marts/customer_summary.sql
+[0m13:35:31.037495 [debug] [MainThread]: Partial parsing: deleted file: dbt_playground://models/marts/customer_activity.sql
+[0m13:35:31.582745 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '7fb953b1-963a-4690-af47-79f131b38712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02df9ad630>]}
+[0m13:35:31.698941 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m13:35:31.701346 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m13:35:31.711277 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '7fb953b1-963a-4690-af47-79f131b38712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02dfbfca30>]}
+[0m13:35:31.712113 [info ] [MainThread]: Found 3 models, 3 sources, 455 macros
+[0m13:35:31.712733 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '7fb953b1-963a-4690-af47-79f131b38712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02df9e49d0>]}
+[0m13:35:31.715122 [info ] [MainThread]: 
+[0m13:35:31.715836 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m13:35:31.716351 [info ] [MainThread]: 
+[0m13:35:31.717060 [debug] [MainThread]: Acquiring new trino connection 'master'
+[0m13:35:31.724890 [debug] [ThreadPool]: Acquiring new trino connection 'list_iceberg'
+[0m13:35:31.784568 [debug] [ThreadPool]: Using trino connection "list_iceberg"
+[0m13:35:31.785105 [debug] [ThreadPool]: On list_iceberg: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "list_iceberg"} */
+
+    select schema_name
+    from "iceberg".INFORMATION_SCHEMA.schemata
+[0m13:35:31.785496 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:35:31.785847 [warn ] [ThreadPool]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m13:35:31.787621 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': '7fb953b1-963a-4690-af47-79f131b38712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02df9f5e40>]}
+[0m13:35:31.905820 [debug] [ThreadPool]: SQL status: SUCCESS in 0.120 seconds
+[0m13:35:31.907378 [debug] [ThreadPool]: On list_iceberg: Close
+[0m13:35:31.910058 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_iceberg, now list_iceberg_public)
+[0m13:35:31.930741 [debug] [ThreadPool]: Using trino connection "list_iceberg_public"
+[0m13:35:31.931288 [debug] [ThreadPool]: On list_iceberg_public: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "connection_name": "list_iceberg_public"} */
+select
+      t.table_catalog as database,
+      t.table_name as name,
+      t.table_schema as schema,
+      case when mv.name is not null then 'materialized_view'
+           when t.table_type = 'BASE TABLE' then 'table'
+           when t.table_type = 'VIEW' then 'view'
+           else t.table_type
+      end as table_type
+    from "iceberg".INFORMATION_SCHEMA.tables t
+    left join (
+            select * from system.metadata.materialized_views
+            where catalog_name = 'iceberg'
+              and schema_name = 'public') mv
+          on mv.catalog_name = t.table_catalog and mv.schema_name = t.table_schema and mv.name = t.table_name
+    where t.table_schema = 'public'
+[0m13:35:31.931669 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:35:32.293319 [debug] [ThreadPool]: SQL status: SUCCESS in 0.362 seconds
+[0m13:35:32.295291 [debug] [ThreadPool]: On list_iceberg_public: ROLLBACK
+[0m13:35:32.295834 [debug] [ThreadPool]: On list_iceberg_public: Close
+[0m13:35:32.297978 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '7fb953b1-963a-4690-af47-79f131b38712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02dfc5e410>]}
+[0m13:35:32.298644 [debug] [MainThread]: On master: COMMIT
+[0m13:35:32.306903 [debug] [Thread-1 (]: Began running node model.dbt_playground.stg_customers
+[0m13:35:32.308667 [info ] [Thread-1 (]: 1 of 3 START sql view model public.stg_customers ............................... [RUN]
+[0m13:35:32.309837 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_iceberg_public, now model.dbt_playground.stg_customers)
+[0m13:35:32.310660 [debug] [Thread-1 (]: Began compiling node model.dbt_playground.stg_customers
+[0m13:35:32.319833 [debug] [Thread-2 (]: Began running node model.dbt_playground.stg_events
+[0m13:35:32.320604 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_playground.stg_customers"
+[0m13:35:32.321517 [info ] [Thread-2 (]: 2 of 3 START sql view model public.stg_events .................................. [RUN]
+[0m13:35:32.324156 [debug] [Thread-2 (]: Acquiring new trino connection 'model.dbt_playground.stg_events'
+[0m13:35:32.326548 [debug] [Thread-2 (]: Began compiling node model.dbt_playground.stg_events
+[0m13:35:32.323295 [debug] [Thread-1 (]: Began executing node model.dbt_playground.stg_customers
+[0m13:35:32.345312 [debug] [Thread-2 (]: Writing injected SQL for node "model.dbt_playground.stg_events"
+[0m13:35:32.346619 [debug] [Thread-2 (]: Began executing node model.dbt_playground.stg_events
+[0m13:35:32.396946 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_playground.stg_customers"
+[0m13:35:32.397458 [debug] [Thread-2 (]: Writing runtime sql for node "model.dbt_playground.stg_events"
+[0m13:35:32.399658 [debug] [Thread-1 (]: Using trino connection "model.dbt_playground.stg_customers"
+[0m13:35:32.401359 [debug] [Thread-2 (]: Using trino connection "model.dbt_playground.stg_events"
+[0m13:35:32.401905 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.stg_customers"} */
+
+  create or replace view
+    "iceberg"."public"."stg_customers"
+  security definer
+  as
+    select
+    id as customer_id,
+    name,
+    email
+from "postgres"."public"."customers"
+  
+[0m13:35:32.402491 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.stg_events"} */
+
+  create or replace view
+    "iceberg"."public"."stg_events"
+  security definer
+  as
+    select
+    event_id,
+    user_id as customer_id,
+    event_type,
+    event_time
+from "iceberg"."data"."events"
+  
+[0m13:35:32.403050 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:35:32.403566 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m13:35:32.680969 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.278 seconds
+[0m13:35:32.710564 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: ROLLBACK
+[0m13:35:32.712510 [debug] [Thread-1 (]: On model.dbt_playground.stg_customers: Close
+[0m13:35:32.716403 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.313 seconds
+[0m13:35:32.717094 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7fb953b1-963a-4690-af47-79f131b38712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02de4ad750>]}
+[0m13:35:32.719436 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: ROLLBACK
+[0m13:35:32.720327 [info ] [Thread-1 (]: 1 of 3 OK created sql view model public.stg_customers .......................... [[32mCREATE VIEW[0m in 0.40s]
+[0m13:35:32.720988 [debug] [Thread-2 (]: On model.dbt_playground.stg_events: Close
+[0m13:35:32.721861 [debug] [Thread-1 (]: Finished running node model.dbt_playground.stg_customers
+[0m13:35:32.723048 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7fb953b1-963a-4690-af47-79f131b38712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02de4c9a50>]}
+[0m13:35:32.725197 [info ] [Thread-2 (]: 2 of 3 OK created sql view model public.stg_events ............................. [[32mCREATE VIEW[0m in 0.40s]
+[0m13:35:32.725939 [debug] [Thread-2 (]: Finished running node model.dbt_playground.stg_events
+[0m13:35:32.727384 [debug] [Thread-4 (]: Began running node model.dbt_playground.customer_summary
+[0m13:35:32.728153 [info ] [Thread-4 (]: 3 of 3 START sql table model public.customer_summary ........................... [RUN]
+[0m13:35:32.728882 [debug] [Thread-4 (]: Acquiring new trino connection 'model.dbt_playground.customer_summary'
+[0m13:35:32.729379 [debug] [Thread-4 (]: Began compiling node model.dbt_playground.customer_summary
+[0m13:35:32.733573 [debug] [Thread-4 (]: Writing injected SQL for node "model.dbt_playground.customer_summary"
+[0m13:35:32.734368 [debug] [Thread-4 (]: Began executing node model.dbt_playground.customer_summary
+[0m13:35:32.797164 [debug] [Thread-4 (]: Writing runtime sql for node "model.dbt_playground.customer_summary"
+[0m13:35:32.799708 [debug] [Thread-4 (]: Using trino connection "model.dbt_playground.customer_summary"
+[0m13:35:32.800384 [debug] [Thread-4 (]: On model.dbt_playground.customer_summary: /* {"app": "dbt", "dbt_version": "1.11.2", "profile_name": "dbt_project", "target_name": "dev", "node_id": "model.dbt_playground.customer_summary"} */
+
+  
+    
+
+    create table "iceberg"."public"."customer_summary"
+      
+      
+    as (
+      with customers as (
+    select * from "iceberg"."public"."stg_customers"
+),
+events as (
+    select * from "iceberg"."public"."stg_events"
+)
+select
+    c.customer_id,
+    c.name,
+    count(e.event_id) as total_events
+from customers c
+left join events e on c.customer_id = e.customer_id
+group by 1, 2
+    )
+[0m13:35:32.800842 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m13:35:36.588306 [debug] [Thread-4 (]: SQL status: CREATE TABLE (3 rows) in 3.787 seconds
+[0m13:35:36.590681 [debug] [Thread-4 (]: On model.dbt_playground.customer_summary: ROLLBACK
+[0m13:35:36.591185 [debug] [Thread-4 (]: On model.dbt_playground.customer_summary: Close
+[0m13:35:36.592849 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7fb953b1-963a-4690-af47-79f131b38712', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02dc34bee0>]}
+[0m13:35:36.593805 [info ] [Thread-4 (]: 3 of 3 OK created sql table model public.customer_summary ...................... [[32mCREATE TABLE (3 rows)[0m in 3.86s]
+[0m13:35:36.594836 [debug] [Thread-4 (]: Finished running node model.dbt_playground.customer_summary
+[0m13:35:36.597330 [debug] [MainThread]: On master: COMMIT
+[0m13:35:36.598198 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:35:36.598693 [debug] [MainThread]: Connection 'model.dbt_playground.stg_customers' was properly closed.
+[0m13:35:36.599092 [debug] [MainThread]: Connection 'model.dbt_playground.stg_events' was properly closed.
+[0m13:35:36.599472 [debug] [MainThread]: Connection 'model.dbt_playground.customer_summary' was properly closed.
+[0m13:35:36.600083 [info ] [MainThread]: 
+[0m13:35:36.601350 [info ] [MainThread]: Finished running 1 table model, 2 view models in 0 hours 0 minutes and 4.88 seconds (4.88s).
+[0m13:35:36.603937 [debug] [MainThread]: Command end result
+[0m13:35:36.633988 [debug] [MainThread]: Wrote artifact WritableManifest to /usr/app/dbt_project/target/manifest.json
+[0m13:35:36.636336 [debug] [MainThread]: Wrote artifact SemanticManifest to /usr/app/dbt_project/target/semantic_manifest.json
+[0m13:35:36.645474 [debug] [MainThread]: Wrote artifact RunExecutionResult to /usr/app/dbt_project/target/run_results.json
+[0m13:35:36.646070 [info ] [MainThread]: 
+[0m13:35:36.646639 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m13:35:36.647091 [info ] [MainThread]: 
+[0m13:35:36.647531 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m13:35:36.648925 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 6.469803, "process_in_blocks": "0", "process_kernel_time": 0.50358, "process_mem_max_rss": "122280", "process_out_blocks": "2840", "process_user_time": 3.449124}
+[0m13:35:36.649580 [debug] [MainThread]: Command `dbt run` succeeded at 13:35:36.649456 after 6.47 seconds
+[0m13:35:36.650003 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02e12ec2b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02e01d6ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e02e137b520>]}
+[0m13:35:36.650445 [debug] [MainThread]: Flushing usage events
+[0m13:35:37.540878 [debug] [MainThread]: An error was encountered while trying to flush usage events
