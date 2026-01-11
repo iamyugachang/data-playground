@@ -1,4 +1,4 @@
-# dbt Trino Iceberg Playground (with Apache Polaris)
+# dbt Trino Iceberg Playground
 
 This project demonstrates an ETL pipeline using dbt, Trino, Iceberg (MinIO), Apache Polaris, and Postgres.
 

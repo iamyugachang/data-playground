@@ -1,0 +1,14 @@
+
+    
+    
+    
+    create table "shop"."public"."customers" ("id" integer,"name" text,"email" text,"signup_date" date)
+  ;
+    -- dbt seed --
+    
+          insert into "shop"."public"."customers" ("id", "name", "email", "signup_date") values
+          (%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s)
+      
+
+;
+  

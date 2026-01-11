@@ -1,0 +1,14 @@
+
+    
+    
+    
+    create table "shop"."public"."products" ("id" integer,"name" text,"price" float8)
+  ;
+    -- dbt seed --
+    
+          insert into "shop"."public"."products" ("id", "name", "price") values
+          (%s,%s,%s),(%s,%s,%s),(%s,%s,%s)
+      
+
+;
+  

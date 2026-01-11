@@ -12,6 +12,6 @@ sources:
   - name: raw_events
     description: "Iceberg raw events"
     database: iceberg
-    schema: data
+    schema: public_data
     tables:
       - name: events

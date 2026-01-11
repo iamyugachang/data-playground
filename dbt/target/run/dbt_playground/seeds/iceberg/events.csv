@@ -1,0 +1,14 @@
+
+    
+    
+    
+    create table "iceberg"."public_data"."events" ("event_id" VARCHAR,"user_id" INTEGER,"event_type" VARCHAR,"event_time" TIMESTAMP) 
+  ;
+    -- dbt seed --
+    
+          insert into "iceberg"."public_data"."events" ("event_id", "user_id", "event_type", "event_time") values
+          (?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?)
+      
+
+;
+  
