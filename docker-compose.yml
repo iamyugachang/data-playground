@@ -78,7 +78,7 @@ services:
       context: .
       dockerfile: dbt/Dockerfile
     container_name: dbt_playground_dbt_runner
-    command: tail -f /dev/null
+    command: /usr/app/dbt_project/start.sh
     volumes:
       - ./dbt:/usr/app/dbt_project
       # Mount profiles locally so they persist and are easy to edit

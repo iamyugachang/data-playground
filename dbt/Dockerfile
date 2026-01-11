@@ -10,3 +10,6 @@ RUN pip install dbt-core dbt-trino dbt-postgres requests boto3
 
 # We will mount the project here
 WORKDIR /usr/app/dbt_project
+
+COPY dbt/start.sh /usr/app/dbt_project/start.sh
+RUN chmod +x /usr/app/dbt_project/start.sh

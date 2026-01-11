@@ -17,16 +17,21 @@ This project demonstrates an ETL pipeline using dbt, Trino, Iceberg (MinIO), Apa
     docker compose up -d --build
     ```
 
-2.  **Initialize Polaris Catalog**:
-    Wait for Polaris (port 8181) to be ready, then run the initialization script. This script creates the `dbt_playground` catalog in Polaris.
+2.  **Initialize Infrastructure**:
+    Wait for Polaris (port 8181) to be ready, then run the initialization scripts.
     ```bash
     docker compose exec dbt python3 /scripts/init_polaris.py
+    docker compose exec dbt python3 /scripts/init_minio.py
     ```
 
-3.  **Initialize Iceberg Data**:
-    Run the SQL script to create the `iceberg.data.events` table in Trino (which talks to Polaris -> MinIO).
+3.  **Initialize Data (dbt Seeds)**:
+    Load sample data into Iceberg and Postgres using dbt seeds.
     ```bash
-    docker compose exec trino trino -f /scripts/init_iceberg.sql
+    # Load Iceberg Data (Trino)
+    docker compose exec dbt dbt seed --target dev --select iceberg
+
+    # Load Shop Data (Postgres)
+    docker compose exec dbt dbt seed --target shop --select shop
     ```
 
 4.  **Run dbt**:
@@ -38,12 +43,12 @@ This project demonstrates an ETL pipeline using dbt, Trino, Iceberg (MinIO), Apa
     ```
 
 5.  **View Docs**:
-    Generate and serve the dbt documentation.
+    The dbt documentation is automatically served at [http://localhost:8081](http://localhost:8081).
+    To update the docs after running models:
     ```bash
     docker compose exec dbt dbt docs generate
-    docker compose exec dbt dbt docs serve --port 8081 --host 0.0.0.0
     ```
-    Access docs at [http://localhost:8081](http://localhost:8081).
+    Then refresh your browser.
 
 ## Data Scenario
 
