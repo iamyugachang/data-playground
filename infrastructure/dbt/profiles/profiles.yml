@@ -1,4 +1,4 @@
-dbt_project:
+data_playground:
   target: dev
   outputs:
     dev:

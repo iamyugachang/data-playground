@@ -1,6 +1,6 @@
-# dbt Trino Iceberg Playground (with Apache Polaris)
+# Data Playground (Trino, Iceberg, Polaris, dbt)
 
-This project demonstrates an ETL pipeline using dbt, Trino, Iceberg (MinIO), Apache Polaris, and Postgres.
+This project demonstrates an ETL pipeline using dbt, Trino, Iceberg (MinIO), Apache Polaris, and Postgres. It is structured as a "Demonstration Hub" monorepo.
 
 ## Architecture
 
@@ -10,6 +10,14 @@ This project demonstrates an ETL pipeline using dbt, Trino, Iceberg (MinIO), Apa
 *   **Apache Polaris**: Iceberg REST Catalog for metadata management.
 *   **dbt**: Managing transformations and documentation.
 
+## Repository Structure
+
+*   `apps/`: Contains application code.
+    *   `dbt-analytics/`: The main dbt project.
+*   `infrastructure/`: Configuration for infrastructure services.
+    *   `trino`, `postgres`, `polaris`, `dbt/docker`, `dbt/profiles`.
+*   `scripts/`: Shared initialization and utility scripts.
+
 ## Setup
 
 1.  **Start Services**:
@@ -18,12 +26,18 @@ This project demonstrates an ETL pipeline using dbt, Trino, Iceberg (MinIO), Apa
     ```
 
 2.  **Initialize Polaris Catalog**:
-    Wait for Polaris (port 8181) to be ready, then run the initialization script. This script creates the `dbt_playground` catalog in Polaris.
+    Wait for Polaris (port 8181) to be ready, then run the initialization script. This script creates the `data_playground` catalog in Polaris.
     ```bash
     docker compose exec dbt python3 /scripts/init_polaris.py
     ```
 
-3.  **Initialize Iceberg Data**:
+3.  **Initialize MinIO Bucket**:
+    Create the `warehouse` bucket in MinIO.
+    ```bash
+    docker compose exec dbt python3 /scripts/init_minio.py
+    ```
+
+4.  **Initialize Iceberg Data**:
     Run the SQL script to create the `iceberg.data.events` table in Trino (which talks to Polaris -> MinIO).
     ```bash
     docker compose exec trino trino -f /scripts/init_iceberg.sql
@@ -49,4 +63,4 @@ This project demonstrates an ETL pipeline using dbt, Trino, Iceberg (MinIO), Apa
 
 *   **Source 1 (Postgres)**: `shop.public.customers`, `shop.public.products`.
 *   **Source 2 (Iceberg)**: `iceberg.data.events`.
-*   **Target (Trino View)**: `dbt_playground.marts.customer_activity`.
+*   **Target (Trino View)**: `data_playground.marts.customer_activity`.

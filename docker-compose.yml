@@ -4,13 +4,13 @@ services:
   # ---------------------------------------------------------------------------
   postgres:
     image: postgres:15
-    container_name: dbt_playground_postgres
+    container_name: data_playground_postgres
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: password
       POSTGRES_DB: postgres # default db
     volumes:
-      - ./postgres/init_data.sql:/docker-entrypoint-initdb.d/init_data.sql
+      - ./infrastructure/postgres/init_data.sql:/docker-entrypoint-initdb.d/init_data.sql
     ports:
       - "5432:5432"
 
@@ -19,7 +19,7 @@ services:
   # ---------------------------------------------------------------------------
   minio:
     image: quay.io/minio/minio:latest
-    container_name: dbt_playground_minio
+    container_name: data_playground_minio
     environment:
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: password
@@ -37,7 +37,7 @@ services:
   # ---------------------------------------------------------------------------
   polaris:
     image: apache/polaris:latest
-    container_name: dbt_playground_polaris
+    container_name: data_playground_polaris
     environment:
       - POLARIS_ENV=dev
       - POLARIS_BOOTSTRAP_CREDENTIALS=POLARIS,root,s3cr3t
@@ -59,11 +59,11 @@ services:
   # ---------------------------------------------------------------------------
   trino:
     image: trinodb/trino:latest
-    container_name: dbt_playground_trino
+    container_name: data_playground_trino
     ports:
       - "8080:8080"
     volumes:
-      - ./trino/etc:/etc/trino
+      - ./infrastructure/trino/etc:/etc/trino
       - ./scripts:/scripts
     depends_on:
       - polaris
@@ -76,13 +76,13 @@ services:
   dbt:
     build:
       context: .
-      dockerfile: dbt_docker/Dockerfile
-    container_name: dbt_playground_dbt_runner
-    command: tail -f /dev/null
+      dockerfile: infrastructure/dbt/docker/Dockerfile
+    container_name: data_playground_dbt_runner
+    command: bash -c "until dbt debug; do echo 'Waiting for Trino...'; sleep 5; done; dbt docs generate || echo 'Docs generation failed'; dbt docs serve --port 8081 --host 0.0.0.0 || tail -f /dev/null"
     volumes:
-      - ./dbt_project:/usr/app/dbt_project
+      - ./apps/dbt-analytics:/usr/app/dbt_project
       # Mount profiles locally so they persist and are easy to edit
-      - ./dbt_profiles:/root/.dbt
+      - ./infrastructure/dbt/profiles:/root/.dbt
       - ./scripts:/scripts
     environment:
       - DBT_PROFILES_DIR=/root/.dbt

@@ -1,8 +1,8 @@
-name: 'dbt_playground'
+name: 'data_playground'
 version: '1.0.0'
 config-version: 2
 
-profile: 'dbt_project'
+profile: 'data_playground'
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -17,7 +17,7 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  dbt_playground:
+  data_playground:
     materialized: view
     staging:
       materialized: view
