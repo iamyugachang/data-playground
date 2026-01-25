@@ -12,3 +12,13 @@ data_playground:
       port: 8080
       http_scheme: http
       threads: 4
+
+    shop:
+      type: postgres
+      host: postgres
+      user: admin
+      password: password
+      port: 5432
+      dbname: shop
+      schema: public
+      threads: 4
