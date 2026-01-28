@@ -8,7 +8,7 @@ model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
 seeds:
-  dbt_playground:
+  data_playground:
     iceberg:
       +schema: data
     shop:

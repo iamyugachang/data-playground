@@ -1,0 +1,4 @@
+event_id,user_id,event_type,event_time
+1,1,view,2023-01-01 10:00:00
+2,1,click,2023-01-01 10:05:00
+3,2,view,2023-01-01 11:00:00

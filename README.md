@@ -14,6 +14,7 @@ This project demonstrates an ETL pipeline using dbt, Trino, Iceberg (MinIO), Apa
 
 *   `apps/`: Contains application code.
     *   `dbt-analytics/`: The main dbt project.
+    *   `dagster-app/`: Dagster orchestration logic.
 *   `infrastructure/`: Configuration for infrastructure services.
     *   `trino`, `postgres`, `polaris`, `dbt/docker`, `dbt/profiles`.
 *   `scripts/`: Shared initialization and utility scripts.
@@ -56,7 +57,16 @@ This project demonstrates an ETL pipeline using dbt, Trino, Iceberg (MinIO), Apa
     docker compose exec dbt dbt run
     ```
 
-6.  **View Docs**:
+7.  **Run Dagster (Scheduling)**:
+    Access the Dagster UI at [http://localhost:3000](http://localhost:3000).
+    The schedule `every_10_min_schedule` is active.
+    
+    To manually trigger a run:
+    1.  Go to "Overview" -> "Jobs".
+    2.  Select `run_dbt_job`.
+    3.  Click "Materialize All".
+
+## dbt Documentation
     The dbt documentation is automatically served at [http://localhost:8081](http://localhost:8081).
     To update the docs after running models:
     ```bash

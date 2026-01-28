@@ -90,3 +90,29 @@ services:
       - "8081:8081" # Expose for dbt docs
     depends_on:
       - trino
+
+  # ---------------------------------------------------------------------------
+  # Dagster
+  # ---------------------------------------------------------------------------
+  dagster:
+    build:
+      context: .
+      dockerfile: apps/dagster-app/Dockerfile
+    container_name: data_playground_dagster
+    environment:
+      - DBT_PROFILES_DIR=/root/.dbt
+    volumes:
+      - ./apps:/opt/data-playground/apps
+      - ./infrastructure:/opt/data-playground/infrastructure
+      - ./infrastructure/dbt/profiles:/root/.dbt
+      - dagster_home:/opt/dagster/dagster_home
+      - dagster_storage:/var/lib/dagster
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - trino
+
+volumes:
+  dagster_home:
+  dagster_storage:
