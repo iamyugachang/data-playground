@@ -35,7 +35,8 @@ def create_catalog(token):
         "type": "INTERNAL",
         "readOnly": False,
         "properties": {
-            "default-base-location": "s3://warehouse/"
+            "default-base-location": "s3://warehouse/",
+            "polaris.config.drop-with-purge.enabled": "true"
         },
         "storageConfigInfo": {
             "storageType": "S3",
@@ -57,14 +58,23 @@ def create_catalog(token):
         print(resp.text)
         return False
 
+def grant_content_privilege(token):
+    url = f"{POLARIS_URL}/api/management/v1/catalogs/{CATALOG_NAME}/catalog-roles/catalog_admin/grants"
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    resp = requests.put(url, headers=headers, json={"privilege": "CATALOG_MANAGE_CONTENT", "type": "catalog"})
+    if resp.status_code in (200, 201):
+        print("Granted CATALOG_MANAGE_CONTENT to catalog_admin.")
+    else:
+        print(f"Warning: could not grant CATALOG_MANAGE_CONTENT: {resp.status_code} {resp.text}")
+
 def main():
     # Wait for Polaris to be ready
     for i in range(30):
         token = get_token()
         if token:
             if create_catalog(token):
+                grant_content_privilege(token)
                 print("Initialization complete.")
-                print("Note: Custom RBAC roles were skipped. Using 'root' credentials for access is recommended for this demo environment.")
                 break
         print("Waiting for Polaris...")
         time.sleep(2)

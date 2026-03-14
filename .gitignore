@@ -1,2 +1,13 @@
 **/logs/
 **/target/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Dagster
+.storage/
+
+# Mac
+.DS_Store
